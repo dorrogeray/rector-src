@@ -6,10 +6,12 @@ use Rector\TypeDeclaration\Rector\ClassMethod\AddArrayParamDocTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByMethodCallTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByParentCallTypeRector;
+use Rector\TypeDeclaration\Rector\ClassMethod\ReturnAnnotationIncorrectNullableRector;
 use Rector\TypeDeclaration\Rector\Closure\AddClosureReturnTypeRector;
 use Rector\TypeDeclaration\Rector\FunctionLike\ParamTypeDeclarationRector;
 use Rector\TypeDeclaration\Rector\FunctionLike\ReturnTypeDeclarationRector;
 use Rector\TypeDeclaration\Rector\Property\PropertyTypeDeclarationRector;
+use Rector\TypeDeclaration\Rector\Property\VarAnnotationIncorrectNullableRector;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -22,4 +24,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(AddArrayReturnDocTypeRector::class);
     $services->set(ParamTypeByParentCallTypeRector::class);
     $services->set(ParamTypeByMethodCallTypeRector::class);
+    $services->set(ReturnAnnotationIncorrectNullableRector::class);
+    $services->set(VarAnnotationIncorrectNullableRector::class);
 };
